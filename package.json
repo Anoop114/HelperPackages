@@ -11,19 +11,19 @@
     "keyword3"
   ],
   "license": "MIT",
-  "homepage": "https://api.stansassets.com/",
+  "homepage": "https://github.com/Anoop114",
   "bugs": {
-    "url": "https://github.com/StansAssets/com.stansassets.foundation/issues",
-    "email": "support@stansassets.com"
+    "url": "https://github.com/Anoop114/HelperPackages.git/issues",
+    "email": "anoop@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:StansAssets/com.stansassets.foundation.git"
+    "url": "https://github.com/Anoop114/HelperPackages.git"
   },
   "author": {
     "name": "Anoop",
-    "email": "hello@example.com",
-    "url": "https://www.mycompany.com"
+    "email": "anoop@gmail.com",
+    "url": "https://github.com/Anoop114/HelperPackages.git"
   },
   "type": "library"
 }
