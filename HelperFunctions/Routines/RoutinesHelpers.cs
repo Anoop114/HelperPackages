@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace HelperFunction.HelperFunctions.Routines
+namespace HelperFunction.Routines
 {
     public static class RoutinesHelpers
     {

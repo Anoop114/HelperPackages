@@ -2,7 +2,7 @@
   "name": "com.anoop.helper-function-tools",
   "displayName": "Helper Function Tools",
   "description": "made for add on functions.",
-  "version": "0.0.1-preview",
+  "version": "0.0.2-preview",
   "unity": "2019.1",
   "unityRelease": "0b5",
   "keywords": [

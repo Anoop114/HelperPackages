@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using HelperFunctions.Camera;
+using HelperFunction.Camera;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace HelperFunction.HelperFunctions.UI
+namespace HelperFunction.UI
 {
     public static class UIHelper
     {

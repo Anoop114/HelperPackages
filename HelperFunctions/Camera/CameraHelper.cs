@@ -1,4 +1,4 @@
-﻿namespace HelperFunctions.Camera
+﻿namespace HelperFunction.Camera
 {
     public static class CameraHelper
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace HelperFunction.HelperFunctions.Utilities
+namespace HelperFunction.Utilities
 {
     public static class TransformChild
     {
