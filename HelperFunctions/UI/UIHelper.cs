@@ -10,6 +10,10 @@ namespace HelperFunction.UI
         private static PointerEventData _eventData;
         private static List<RaycastResult> _raycastResults;
 
+        /// <summary>
+        /// Check if the mouse is over UI element or not.
+        /// </summary>
+        /// <returns> true / false </returns>
         public static bool IsOverUI()
         {
             _eventData = new PointerEventData(EventSystem.current) { position = Input.mousePosition };
@@ -21,6 +25,11 @@ namespace HelperFunction.UI
 
     public static class WorldPointToCanvas
     {
+        /// <summary>
+        /// Convert Canvas transform to word coordinates.
+        /// </summary>
+        /// <param name="element"> the canvas element(RectTransform). </param>
+        /// <returns> vector2 => word coordinate of the given element. </returns>
         public static Vector2 CanvasElement(RectTransform element)
         {
             RectTransformUtility.ScreenPointToWorldPointInRectangle(element, element.position, CameraHelper.Camera, out var result);

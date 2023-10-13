@@ -2,10 +2,12 @@
 using UnityEditor;
 #endif
 using UnityEngine;
-// ReSharper disable NotAccessedField.Local
 
 namespace HelperTools.Scene
 {
+    /// <summary>
+    /// Hold scene reference in editor and give the name of that scene if needed.
+    /// </summary>
     [System.Serializable]
     public class SceneField
     {

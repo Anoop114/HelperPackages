@@ -4,6 +4,9 @@
     {
         private static UnityEngine.Camera _camera;
 
+        /// <summary>
+        /// Return either main camera or stored camera.
+        /// </summary>
         public static UnityEngine.Camera Camera
         {
             get
