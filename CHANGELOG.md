@@ -9,7 +9,7 @@
 
 ### Added
 - [SceneField](https://github.com/Anoop114/HelperPackages/tree/main/HelperTools/Scene/SceneField.cs) SceneFiled.cs File.
-- [ByteManipulation](https://github.com/Anoop114/HelperPackages/tree/main/HelperFunctions/Utilites/ByteManipulation.cs) ByteManipulation.cs File.
+- [ByteManipulation](https://github.com/Anoop114/HelperPackages/blob/main/HelperFunctions/Utilities/ByteManipulation.cs) ByteManipulation.cs File.
 
 ---
 ## [0.0.1-preview] - 2023-10-09
