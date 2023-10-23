@@ -5,6 +5,9 @@
   "version": "0.0.3-preview",
   "unity": "2019.1",
   "unityRelease": "0b5",
+  "documentationUrl": "https://github.com/Anoop114/HelperPackages/blob/main/Documentation~/HelperPackage.md",
+  "changelogUrl": "https://github.com/Anoop114/HelperPackages/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/Anoop114/HelperPackages/blob/main/LICENSE.md",
   "keywords": [
     "keyword1",
     "keyword2",
@@ -18,19 +21,19 @@
     }
   ],
   "license": "MIT",
-  "homepage": "https://api.stansassets.com/",
+  "homepage": "https://github.com/Anoop114/HelperPackages/",
   "bugs": {
-    "url": "https://github.com/StansAssets/com.stansassets.foundation/issues",
-    "email": "support@stansassets.com"
+    "url": "https://github.com/Anoop114/HelperPackages/issues",
+    "email": "anoopkrsh22+HelperpackageBug@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:StansAssets/com.stansassets.foundation.git"
+    "url": "https://github.com/Anoop114/HelperPackages.git"
   },
   "author": {
     "name": "Anoop",
-    "email": "hello@example.com",
-    "url": "https://www.mycompany.com"
+    "email": "anoopkrsh22@gmail.com",
+    "url": "https://anoop114.github.io/Portfolio/"
   },
   "type": "library"
 }
