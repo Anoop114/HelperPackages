@@ -2,13 +2,20 @@
   "name": "com.anoop.helper-function-tools",
   "displayName": "Helper Function Tools",
   "description": "made for add on functions.",
-  "version": "0.0.2-preview",
+  "version": "0.0.3-preview",
   "unity": "2019.1",
   "unityRelease": "0b5",
   "keywords": [
     "keyword1",
     "keyword2",
     "keyword3"
+  ],
+  "samples": [
+    {
+      "displayName": "ServerDemo",
+      "description": "Contains A sample scene for test server demo.",
+      "path": "Samples~/ServerDemo"
+    }
   ],
   "license": "MIT",
   "homepage": "https://api.stansassets.com/",
