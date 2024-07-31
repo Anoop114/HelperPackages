@@ -1,21 +1,28 @@
-MIT License
+# License 🌟
 
 Copyright (c) 2020 Anoop's Assets
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## Learning and Personal Use 📚
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Feel free to use the tool and assets provided in this project for learning purposes! 🤓 Explore, modify, and experiment with them to your heart's content. 🚀
+
+## Copyright Notice ©️
+
+The original content, including the tool code and assets, remains under `Anoop` copyright. If you choose to use these assets in personal or professional projects, please provide proper credit by mentioning `Anoop` name or project name. 🙌
+
+## Restrictions 🚫
+
+- You **may not** use these assets for any commercial purposes without explicit permission.
+- You **may not** distribute or sell these assets as standalone products.
+
+
+## Disclaimer ⚠️
+These tools and assets are provided "as-is" without any warranty of any kind, express or implied. In no event shall the author be held liable for any damages arising from the use of these tools and assets.
+
+Thank you for understanding and happy creating! 🎉
+
+---
+Anoop<br>
+Creator of [Helper tool package]
+---

@@ -1,26 +1,26 @@
 {
-  "name": "com.anoop.helper-function-tools",
-  "displayName": "Helper Function Tools",
-  "description": "made for add on functions.",
-  "version": "0.0.3-preview",
+  "name": "com.anoop.webhelper",
+  "displayName": "Web Helper",
+  "description": "This asset package is use for simplify web api call that\ngoing to help simpilify the WEB REST API calls",
+  "version": "0.0.1",
   "unity": "2019.1",
   "unityRelease": "0b5",
   "documentationUrl": "https://github.com/Anoop114/HelperPackages/blob/main/Documentation~/HelperPackage.md",
   "changelogUrl": "https://github.com/Anoop114/HelperPackages/blob/main/CHANGELOG.md",
   "licensesUrl": "https://github.com/Anoop114/HelperPackages/blob/main/LICENSE.md",
   "keywords": [
-    "keyword1",
-    "keyword2",
-    "keyword3"
+    "WEB",
+    "web",
+    "webhelper",
+    "Web Helper"
   ],
   "samples": [
     {
       "displayName": "ServerDemo",
       "description": "Contains A sample scene for test server demo.",
-      "path": "Samples~/ServerDemo"
+      "path": "Package Resources~/ServerDemo"
     }
   ],
-  "license": "MIT",
   "homepage": "https://github.com/Anoop114/HelperPackages/",
   "bugs": {
     "url": "https://github.com/Anoop114/HelperPackages/issues",
