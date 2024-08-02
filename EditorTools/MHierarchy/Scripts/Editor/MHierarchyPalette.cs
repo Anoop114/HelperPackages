@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using static MFolders.VUtils;
-using static MFolders.VGUI;
+using static MHierarchy.VUtils;
+using static MHierarchy.VGUI;
 
 
-namespace MFolders
+
+namespace MHierarchy
 {
-    public class MFoldersPalette : ScriptableObject
+    public class MHierarchyPalette : ScriptableObject
     {
         public List<Color> colors = new List<Color>();
 
@@ -37,9 +38,9 @@ namespace MFolders
                 if (colorIndex >= greyColorsCount) return;
 
 #if UNITY_2022_1_OR_NEWER
-                color = Greyscale(EditorGUIUtility.isProSkin ? .16f : .9f);
+                color = Greyscale(isDarkTheme ? .16f : .9f);
 #else
-                color = Greyscale(EditorGUIUtility.isProSkin ? .315f : .9f);
+                color = Greyscale(isDarkTheme ? .315f : .9f);
 #endif
 
             }
@@ -48,56 +49,22 @@ namespace MFolders
                 if (colorIndex < greyColorsCount) return;
                 if (!isDarkTheme) return;
 
-
-                var t = (colorIndex - greyColorsCount.ToFloat()) / rainbowColorsCount;
-
-                if (colorIndex == 0)
-                    t += .01f;
+                color = HSLToRGB((colorIndex - greyColorsCount.ToFloat()) / rainbowColorsCount, .45f, .35f);
 
                 if (colorIndex == 1)
-                    t -= .02f;
+                    color *= 1.2f;
 
                 if (colorIndex == 2)
-                    t -= .015f;
-
-                if (colorIndex == 3)
-                    t -= .01f;
-
-                if (colorIndex == 4)
-                    t += .02f;
-
-                if (colorIndex == 5)
-                    t += .01f;
-
-
-                if (colorIndex == 8)
-                    t -= .01f;
-
-
-                // color = HSLToRGB(t, .61f, .57f);
-                color = HSLToRGB(t, .61f, .57f);
-
-
-                if (colorIndex == 0)
-                    color *= 1.16f;
-
-                if (colorIndex == 1)
-                    color *= 1.17f;
-
-                if (colorIndex == 2)
-                    color *= 1.03f;
+                    color *= 1.1f;
 
                 if (colorIndex == 6)
-                    color *= 1.2f;
+                    color *= 1.35f;
 
                 if (colorIndex == 7)
-                    color *= 1.55f;
+                    color *= 1.3f;
 
                 if (colorIndex == 8)
-                    color *= 1.2f;
-
-                if (colorIndex == 9)
-                    color *= 1.08f;
+                    color *= 1.05f;
 
 
                 color.a = .1f;
@@ -110,8 +77,7 @@ namespace MFolders
 
                 color = HSLToRGB((colorIndex - greyColorsCount.ToFloat()) / rainbowColorsCount, .62f, .8f);
 
-                // color.a = .1f;
-                color.a = 1f;
+                color.a = .1f;
 
             }
 
@@ -123,8 +89,8 @@ namespace MFolders
 
         }
 
-        public static int greyColorsCount = 0;
-        public static int rainbowColorsCount = 10;
+        public static int greyColorsCount = 1;
+        public static int rainbowColorsCount = 8;
         public static int colorsCount => greyColorsCount + rainbowColorsCount;
 
 
@@ -155,57 +121,62 @@ namespace MFolders
 
             iconRows.Add(new IconRow(new[]
             {
-                "SceneAsset Icon",
-                "Prefab Icon",
-                "PrefabModel Icon",
-                "Material Icon",
-                "Texture Icon",
-                "Mesh Icon",
+                "Folder Icon",
+                "Canvas Icon",
+                "AvatarMask On Icon",
                 "cs Script Icon",
-                "Shader Icon",
-                "ComputeShader Icon",
+                "StandaloneInputModule Icon",
+                "EventSystem Icon",
+                "Terrain Icon",
                 "ScriptableObject Icon",
 
             }));
             iconRows.Add(new IconRow(new[]
             {
+                "Camera Icon",
+                "ParticleSystem Icon",
+                "TrailRenderer Icon",
+                "Material Icon",
+                "ReflectionProbe Icon",
+
+            }));
+            iconRows.Add(new IconRow(new[]
+            {
                 "Light Icon",
-                "LightProbes Icon",
+                "DirectionalLight Icon",
                 "LightmapParameters Icon",
-                "LightingDataAsset Icon",
-                "Cubemap Icon"
+                "LightProbes Icon",
 
             }));
             iconRows.Add(new IconRow(new[]
             {
-                "PhysicMaterial Icon",
-                "BoxCollider Icon",
-                "TerrainCollider Icon",
-                "MeshCollider Icon",
-                "WheelCollider Icon",
                 "Rigidbody Icon",
+                "BoxCollider Icon",
+                "SphereCollider Icon",
+                "CapsuleCollider Icon",
+                "WheelCollider Icon",
+                "MeshCollider Icon",
 
             }));
             iconRows.Add(new IconRow(new[]
             {
-                "AudioClip Icon",
-                "AudioMixerController Icon",
-                "AudioMixerGroup Icon",
-                "AudioEchoFilter Icon",
                 "AudioSource Icon",
+                "AudioClip Icon",
+                "AudioListener Icon",
+                "AudioEchoFilter Icon",
+                "AudioReverbZone Icon",
 
             }));
             iconRows.Add(new IconRow(new[]
             {
-                "TextAsset Icon",
-                "AssemblyDefinitionAsset Icon",
-                "TerrainData Icon",
-                "Terrain Icon",
-                "AnimatorController Icon",
-                "AnimationClip Icon",
-                "Font Icon",
-                "RawImage Icon",
+                "PreMatCube",
+                "PreMatSphere",
+                "PreMatCylinder",
+                "PreMatQuad",
+                "Favorite",
+                #if UNITY_2021_3_OR_NEWER
                 "Settings Icon",
+                #endif
 
             }));
 
