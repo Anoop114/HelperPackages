@@ -1331,7 +1331,7 @@ namespace MHierarchy
             return iconNameOrPath;
 
         }
-        static string GetIconName_forVInspector(GameObject gameObject)
+        static string GetIconName_forMInspector(GameObject gameObject)
         {
             return GetIconName_forVFavorites(gameObject);
         }

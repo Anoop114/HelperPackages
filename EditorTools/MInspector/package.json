@@ -1,0 +1,32 @@
+{
+  "name": "com.anoop.minspector",
+  "displayName": "MInspector",
+  "description": "Inspector Editor Tool",
+  "version": "0.0.1",
+  "unity": "2019.1",
+  "unityRelease": "0b5",
+  "documentationUrl": "https://github.com/Anoop114/HelperPackages/blob/main/Documentation~/HelperPackage.md",
+  "changelogUrl": "https://github.com/Anoop114/HelperPackages/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/Anoop114/HelperPackages/blob/main/LICENSE.md",
+  "keywords": [
+    "keyword1",
+    "keyword2",
+    "keyword3"
+  ],
+  "samples": [{
+    "displayName": "Inspector Demo",
+    "description": "Contains A sample scene for understand the Inspector demo",
+    "path": "Package Resources~/InspectorDemo"
+  }],
+  "homepage": "https://github.com/Anoop114/HelperPackages/",
+  "bugs": {
+    "url": "https://github.com/Anoop114/HelperPackages/issues",
+    "email": "anoopkrsh22+HelperpackageBug@gmail.com"
+  },
+  "author": {
+    "name": "Anoop",
+    "email": "anoopkrsh22@gmail.com",
+    "url": "https://anoop114.github.io/Portfolio/"
+  },
+  "type": "library"
+}

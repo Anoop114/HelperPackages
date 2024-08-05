@@ -25,13 +25,7 @@ MonoBehaviour:
           iconNameOrGuid: 
     - goDatas_byGlobalId:
         keys:
-        - globalObjectIdString: GlobalObjectId_V1-2-ffc0d4010bbf28b4594072e72b8655ab-963194225-0
         - globalObjectIdString: GlobalObjectId_V1-2-00000000000000000000000000000000-849504049-0
-        - globalObjectIdString: GlobalObjectId_V1-2-ffc0d4010bbf28b4594072e72b8655ab-863550622-0
         values:
         - colorIndex: 0
-          iconNameOrGuid: Camera Icon
-        - colorIndex: 0
           iconNameOrGuid: cs Script Icon
-        - colorIndex: 5
-          iconNameOrGuid: 
