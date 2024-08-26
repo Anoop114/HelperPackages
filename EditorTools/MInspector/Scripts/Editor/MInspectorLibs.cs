@@ -1937,21 +1937,22 @@ namespace MInspector
 
             for (int i = 0; i < variants.Length; i++)
             {
-                GUI.backgroundColor = variants[i] == current ? GUIColors.pressedButtonBackground : Color.white;
+                //Debug.Log($"SecondVar {variants[i].Split('.')[1]}");
+                GUI.backgroundColor = variants[i].Split('.')[0] == current ? GUIColors.pressedButtonBackground : Color.white;
                 bool b;
 
-                if (variants[i] == "Settings" && i == variants.Length - 1)
+                if (variants[i].Split('.')[0] == "Settings" && i == variants.Length - 1)
                     b = GUILayout.Button(EditorGUIUtility.IconContent("Settings"), GUILayout.Height(24), GUILayout.Width(26));
 
-                else if (variants[i] == "More" && i == variants.Length - 1)
+                else if (variants[i].Split('.')[0] == "More" && i == variants.Length - 1)
                     b = GUILayout.Button(EditorGUIUtility.IconContent("more"), GUILayout.Height(24), GUILayout.Width(28));
 
                 else if (equalButtonSizes)
-                    b = ButtonFixedSize(variants[i], rowHeight);
+                    b = ButtonFixedSize(variants[i].Split('.')[0], rowHeight);
                 else
-                    b = Button(variants[i], rowHeight);
+                    b = Button(variants[i].Split('.')[0], rowHeight);
 
-                if (b) current = variants[i];
+                if (b) current = variants[i].Split('.')[0];
 
                 GUI.backgroundColor = Color.white;
 
@@ -1977,7 +1978,7 @@ namespace MInspector
             var spaceBetweenTexts = 5;
 
             var maxWidth = GetCurrentInspectorWidth() - 22;
-            var totalWidth = variants.Sum(r => textWidth(r) + spaceBetweenTexts);
+            var totalWidth = variants.Sum(r => textWidth(r.Split('.')[0]) + spaceBetweenTexts);
             var rowsN = (totalWidth / maxWidth).CeilToInt();
             var rowWidth = totalWidth / rowsN;
 
@@ -1997,11 +1998,12 @@ namespace MInspector
                 }
 
 
-                var widthToAdd = textWidth(variants[i]) + spaceBetweenTexts;
+                var widthToAdd = textWidth(variants[i].Split('.')[0]) + spaceBetweenTexts;
 
                 if (curRowWidth + widthToAdd > maxWidth && curRow.Any())
                     nextRow();
 
+                //Debug.Log(variants[i]);
                 curRow.Add(variants[i]);
                 curRowWidth += widthToAdd;
 
@@ -2020,7 +2022,7 @@ namespace MInspector
             Space(3);
 
 
-            return current;
+            return current.Split('.')[0];
 
         }
 
@@ -2093,6 +2095,8 @@ namespace MInspector
             public static Color pressedButtonBackground => isDarkTheme ? new Color(.48f, .76f, 1f, 1f) * 1.4f : new Color(.48f, .7f, 1f, 1f) * 1.2f; // prev pressedButtonCol
             public static Color greyedOutTint => Greyscale(.7f);
             public static Color selectedBackground => isDarkTheme ? new Color(.17f, .365f, .535f) : new Color(.2f, .375f, .555f) * 1.2f;
+            
+            
         }
 
 

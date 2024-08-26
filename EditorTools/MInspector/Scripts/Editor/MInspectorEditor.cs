@@ -69,9 +69,10 @@ namespace MInspector
 
 
                         Space(noVariablesShown ? 2 : 6);
-
-                        var selName = TabsMultiRow(tab.selectedSubtab.name, false, 24, tab.subtabs.Select(r => r.name).ToArray());
-
+                        
+                        //Debug.Log(tab.selectedSubtab.name +" "+tab.name +" "+tab.color);
+                        var selName = TabsMultiRow(tab.selectedSubtab.name, false, 24, tab.subtabs.Select(r => r.name+"."+r.color).ToArray());
+                        //Debug.Log(selName);
                         Space(5);
 
 
@@ -104,7 +105,9 @@ namespace MInspector
                     {
                         if (memberInfo.GetCustomAttributeCached<TabAttribute>() is not TabAttribute tabAttribute) return;
 
+                        //Debug.Log(tabAttribute.name +" "+tabAttribute.color);
                         drawingTabPath = tabAttribute.name;
+                        rootTab.color = tabAttribute.color;
                         drawingFoldoutPath = "";
                         hideField = false;
                         disableField = false;
@@ -116,13 +119,16 @@ namespace MInspector
 
 
                         var curTab = rootTab;
-
+                        //Debug.Log(curTab.name +" "+curTab.color);
                         foreach (var name in drawingTabPath.Split('/').Where(r => r != ""))
                         {
                             if (!curTab.subtabsDrawn)
+                            {
+                                //Debug.Log(curTab.name +" "+curTab.color);
                                 drawSubtabs(curTab);
+                            }
 
-                            curTab = curTab.subtabs.Find(r => r.name == name);
+                            //curTab = curTab.subtabs.Find(r => r.name == name);
 
                         }
 
@@ -571,13 +577,24 @@ namespace MInspector
                     var saturation = .6f;
                     var lightness = isDarkTheme ? .57f : .64f;
 
-                    if (button.color.ToLower() == "red") hue = 0;
-                    else if (button.color.ToLower() == "orange") hue = .08f;
-                    else if (button.color.ToLower() == "yellow") hue = .13f;
-                    else if (button.color.ToLower() == "green") { hue = .32f; saturation = .49f; lightness = isDarkTheme ? .56f : .6f; }
-                    else if (button.color.ToLower() == "blue") hue = .55f;
-                    else if (button.color.ToLower() == "pink") hue = .94f;
-                    else return;
+                    switch (button.color.ToLower())
+                    {
+                        case "red": hue = 0;
+                            break;
+                        case "orange": hue = .08f;
+                            break;
+                        case "yellow": hue = .13f;
+                            break;
+                        case "green": hue = .32f; saturation = .49f; lightness = isDarkTheme ? .56f : .6f;
+                            break;
+                        case "blue": hue = .55f;
+                            break;
+                        case "pink": hue = .94f;
+                            break;
+                        default:
+                            return;
+                    }
+                    
 
 
 
@@ -708,22 +725,17 @@ namespace MInspector
                 set_color();
                 argumentsBackground();
 
-                if (!curEvent.isRepaint)
-                    expandButton();
+                if (!curEvent.isRepaint) expandButton();
 
                 buttonItself();
 
-                if (curEvent.isRepaint)
-                    expandButton();
+                if (curEvent.isRepaint) expandButton();
 
                 parameters();
 
-                if (button.isExpanded)
-                    Space(6);
+                if (button.isExpanded) Space();
 
-
-
-
+                
                 GUI.enabled = prevGuiEnabled;
 
                 noButtonsShown = false;
@@ -868,22 +880,32 @@ namespace MInspector
                     void refreshSubtabs()
                     {
                         var names = allSubtabPaths.Select(r => r.Split('/').First()).ToList();
-
                         foreach (var name in names)
-                            if (!tab.subtabs.Any(r => r.name == name))
-                                tab.subtabs.Add(new Tab() { name = name });
+                        {
+                            //Debug.Log(name);
+                            
+                            if (tab.subtabs.All(r => r.name != name))
+                            {
+                                tab.subtabs.Add(new Tab { name = name.Split('.')[0],color = name.Split('.')[1]});
+                            }
+                        }
 
                         foreach (var subtab in tab.subtabs.ToList())
-                            if (!names.Any(r => r == subtab.name))
+                            if (!names.Any(r => r.Split('.')[0] == subtab.name))
                                 tab.subtabs.Remove(subtab);
 
-                        tab.subtabs.SortBy(r => names.IndexOf(r.name));
+                        tab.subtabs.SortBy(r => names.IndexOf(r.name.Split('.')[0]));
 
                     }
                     void setupSubtabs()
                     {
                         foreach (var subtab in tab.subtabs)
-                            setupTab(subtab, allSubtabPaths.Where(r => r.StartsWith(subtab.name + "/")).Select(r => r.Remove(subtab.name + "/")).ToList());
+                        {
+                            var send = allSubtabPaths.Where(r => r.StartsWith(subtab.name + "/")).Select(r => r.Remove(subtab.name + "/")).ToList();
+                            
+                            setupTab(subtab, send);
+                            
+                        }
                     }
 
                     refreshSubtabs();
@@ -907,8 +929,7 @@ namespace MInspector
                 {
                     rootTab = new Tab() { isRootTab = true };
 
-                    var allTabPaths = tabAttributes_byTargetType[targetType].Select(r => r.name);
-
+                    var allTabPaths = tabAttributes_byTargetType[targetType].Select(r => r.name+"."+r.color);
                     setupTab(rootTab, allTabPaths);
 
                 }
@@ -987,7 +1008,10 @@ namespace MInspector
 
 
                     if (member.GetCustomAttributeCached<TabAttribute>() is TabAttribute tabAttribute)
+                    {
                         button.tabAttribute = tabAttribute;
+                        button.color = tabAttribute.color == "" ? button.color : tabAttribute.color;
+                    }
 
                     if (member.GetCustomAttributeCached<FoldoutAttribute>() is FoldoutAttribute foldoutAttribute)
                         button.foldoutAttribute = foldoutAttribute;
@@ -1325,6 +1349,7 @@ namespace MInspector
     class Tab
     {
         public string name;
+        public string color;
 
         public List<Tab> subtabs = new();
 
@@ -1593,6 +1618,7 @@ namespace MInspector
 
     #endregion
 
+    /*
     #region static inspector
 
 
@@ -1994,6 +2020,7 @@ namespace MInspector
 
 
     #endregion
+    */
 
 }
 #endif

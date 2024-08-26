@@ -19,9 +19,12 @@ namespace MInspector
     public class TabAttribute : Attribute
     {
         public string name;
-
-        public TabAttribute(string name) => this.name = name;
-
+        public string color = "";
+        public TabAttribute(string name,string color = "")
+        {
+            this.name = name;
+            this.color = color;
+        }
     }
     public class EndTabAttribute : Attribute { }
 
@@ -32,11 +35,14 @@ namespace MInspector
         public string name = "";
         public int size = 30;
         public int space = 0;
-        public string color = "Grey";
+        public string color = "";
 
         public ButtonAttribute() => this.name = "";
-        public ButtonAttribute(string name) => this.name = name;
-
+        public ButtonAttribute(string color,string name = "")
+        {
+            this.color = color;
+            this.name = name;
+        }
     }
 
 
