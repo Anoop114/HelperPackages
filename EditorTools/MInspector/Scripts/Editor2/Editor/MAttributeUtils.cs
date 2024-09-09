@@ -8,14 +8,12 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 using Type = System.Type;
-using static MInspector.MUtils;
+using static MAttribute.MAttributeUtils;
 
-
-namespace MInspector
+namespace MAttribute
 {
-    public static class MUtils
+    public static class MAttributeUtils
     {
-
         #region Reflection
 
 
@@ -1400,12 +1398,10 @@ namespace MInspector
 
 
         #endregion
-
     }
 
-    public static partial class MGUI
+    public static partial class MAttributeGUI
     {
-
         #region Drawing
 
 
@@ -2207,8 +2203,6 @@ namespace MInspector
 
 
         #endregion
-
     }
-
 }
 #endif

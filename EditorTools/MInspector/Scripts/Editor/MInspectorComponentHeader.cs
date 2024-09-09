@@ -5,8 +5,8 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static MInspector.VUtils;
-using static MInspector.VGUI;
+using static MInspector.MUtils;
+using static MInspector.MGUI;
 
 
 
@@ -131,7 +131,7 @@ namespace MInspector
             {
                 if (component is not MonoBehaviour) return;
                 if (curEvent.mouseButton != 0) return;
-                if (!MInspectorMenu.hideScriptFieldEnabled) return;
+                //if (!MInspectorMenu.hideScriptFieldEnabled) return;
 
                 var iconRect = headerRect.MoveX(18).SetWidth(22);
 

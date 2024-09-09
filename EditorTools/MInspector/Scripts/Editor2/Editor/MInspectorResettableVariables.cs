@@ -5,12 +5,10 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using Type = System.Type;
-using static MInspector.VUtils;
-using static MInspector.VGUI;
+using static MAttribute.MAttributeUtils;
+using static MAttribute.MAttributeGUI;
 
-
-
-namespace MInspector
+namespace MAttribute
 {
     static class MInspectorResettableVariables
     {
@@ -148,7 +146,6 @@ namespace MInspector
 
         public static bool IsResettable(FieldInfo fieldInfo)
         {
-            if (!MInspectorMenu.resettableVariablesEnabled) return false;
             if (Application.isPlaying) return false;
 
             if (System.Attribute.IsDefined(fieldInfo, typeof(VariantsAttribute))) return false;

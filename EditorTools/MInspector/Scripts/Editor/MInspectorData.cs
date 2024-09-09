@@ -4,14 +4,14 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using Type = System.Type;
-using static MInspector.MInspectorState;
-using static MInspector.VUtils;
-using static MInspector.VGUI;
+using static MInspector.MUtils;
+using static MInspector.MGUI;
 
 
 
 namespace MInspector
 {
+    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/SpawnManagerScriptableObject", order = 1)]
     public class MInspectorData : ScriptableObject, ISerializationCallbackReceiver
     {
 
@@ -119,12 +119,12 @@ namespace MInspector
 
 
 
-            public ItemState state
+            public MInspectorState.ItemState state
             {
                 get
                 {
                     if (!MInspectorState.instance.itemStates_byItemId.ContainsKey(id))
-                        MInspectorState.instance.itemStates_byItemId[id] = new ItemState();
+                        MInspectorState.instance.itemStates_byItemId[id] = new MInspectorState.ItemState();
 
                     return MInspectorState.instance.itemStates_byItemId[id];
 

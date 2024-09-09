@@ -11,8 +11,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Type = System.Type;
 using static MInspector.MInspectorData;
-using static MInspector.VUtils;
-using static MInspector.VGUI;
+using static MInspector.MUtils;
+using static MInspector.MGUI;
 
 
 

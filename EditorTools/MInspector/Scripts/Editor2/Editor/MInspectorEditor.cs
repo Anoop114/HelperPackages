@@ -6,13 +6,11 @@ using UnityEditor;
 using UnityEngine;
 using Type = System.Type;
 using Attribute = System.Attribute;
-using static MInspector.MInspectorState;
-using static MInspector.VUtils;
-using static MInspector.VGUI;
+using static MAttribute.MAttributeUtils;
+using static MAttribute.MAttributeGUI;
 
 
-
-namespace MInspector
+namespace MAttribute
 {
     class MInspectorEditor
     {
@@ -735,20 +733,13 @@ namespace MInspector
             void scriptField()
             {
                 if (scriptFieldProperty == null) return;
-                if (MInspectorMenu.hideScriptFieldEnabled) return;
+                //if (MAttributeMenu.hideScriptFieldEnabled) return;
 
                 using (new EditorGUI.DisabledScope(true))
                     EditorGUILayout.PropertyField(scriptFieldProperty);
 
             }
-            void topMargin()
-            {
-                if (scriptFieldProperty == null) return;
-                if (!MInspectorMenu.hideScriptFieldEnabled) return;
 
-                Space(2);
-
-            }
 
             void members()
             {
@@ -827,7 +818,6 @@ namespace MInspector
             rootTab.ResetSubtabsDrawn();
 
             scriptField();
-            topMargin();
 
             members();
             noVariablesToShow();
@@ -1108,16 +1098,16 @@ namespace MInspector
                 if (!rootTab.subtabs.Any() && !rootFoldout.subfoldouts.Any() && !this.buttons.Any(r => r.parameterInfos.Any())) return;
 
 
-                AttributesState attributesState;
+                MAttributeState.AttributesState attributesState;
 
                 void set_attributesState()
                 {
                     var scriptName = rootProperty.serializedObject.targetObject.GetType().Name;
 
-                    if (!MInspectorState.instance.attributeStates_byScriptName.ContainsKey(scriptName))
-                        MInspectorState.instance.attributeStates_byScriptName[scriptName] = new();
+                    if (!MAttributeState.instance.attributeStates_byScriptName.ContainsKey(scriptName))
+                        MAttributeState.instance.attributeStates_byScriptName[scriptName] = new();
 
-                    attributesState = MInspectorState.instance.attributeStates_byScriptName[scriptName];
+                    attributesState = MAttributeState.instance.attributeStates_byScriptName[scriptName];
 
                 }
                 void linkTab(Tab tab, string parentPath)
@@ -1349,7 +1339,7 @@ namespace MInspector
         }
         public int _selectedSubtabIndex;
 
-        public AttributesState attributesState;
+        public MAttributeState.AttributesState attributesState;
         public string path;
 
 
@@ -1407,7 +1397,7 @@ namespace MInspector
         }
         public bool _isExpanded;
 
-        public AttributesState attributesState;
+        public MAttributeState.AttributesState attributesState;
         public string path;
 
 
@@ -1469,7 +1459,7 @@ namespace MInspector
 
         public string path;
 
-        public AttributesState attributesState;
+        public MAttributeState.AttributesState attributesState;
 
 
 

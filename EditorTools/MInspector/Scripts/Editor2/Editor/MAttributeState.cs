@@ -1,12 +1,12 @@
 #if UNITY_EDITOR
 using UnityEditor;
-using static MInspector.MUtils;
+using static MAttribute.MAttributeUtils;
 
 
-namespace MInspector
+namespace MAttribute
 {
-    [FilePath("Library/mInspector State.asset", FilePathAttribute.Location.ProjectFolder)]
-    public class MInspectorState : ScriptableSingleton<MInspectorState>
+    [FilePath("Library/mAttribute State.asset", FilePathAttribute.Location.ProjectFolder)]
+    public class MAttributeState : ScriptableSingleton<MAttributeState>
     {
 
         public SerializableDictionary<string, AttributesState> attributeStates_byScriptName = new();

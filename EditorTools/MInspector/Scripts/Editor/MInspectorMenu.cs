@@ -2,12 +2,12 @@
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using static MInspector.VUtils;
+using static MInspector.MUtils;
 
 
 namespace MInspector
 {
-    class MInspectorMenu
+        class MInspectorMenu
     {
         public static bool navigationBarEnabled { get => EditorPrefs.GetBool("mInspector-navigationBarEnabled", false); set => EditorPrefs.SetBool("mInspector-navigationBarEnabled", value); }
         public static bool copyPasteButtonsEnabled { get => EditorPrefs.GetBool("mInspector-copyPasteButtonsEnabled", false); set => EditorPrefs.SetBool("mInspector-copyPasteButtonsEnabled", value); }
@@ -15,8 +15,8 @@ namespace MInspector
         public static bool componentWindowsEnabled { get => EditorPrefs.GetBool("mInspector-componentWindowsEnabled", false); set => EditorPrefs.SetBool("mInspector-componentWindowsEnabled", value); }
         public static bool componentAnimationsEnabled { get => EditorPrefs.GetBool("mInspector-componentAnimationsEnabled", false); set => EditorPrefs.SetBool("mInspector-componentAnimationsEnabled", value); }
         public static bool minimalModeEnabled { get => EditorPrefs.GetBool("mInspector-minimalModeEnabled", false); set => EditorPrefs.SetBool("mInspector-minimalModeEnabled", value); }
-        public static bool attributesEnabled { get => EditorPrefs.GetBool("mInspector-attributesEnabled", false); set => EditorPrefs.SetBool("mInspector-attributesEnabled", value); }
-        public static bool resettableVariablesEnabled { get => EditorPrefs.GetBool("mInspector-resettableVariablesEnabled", false); set => EditorPrefs.SetBool("mInspector-resettableVariablesEnabled", value); }
+        //public static bool attributesEnabled { get => EditorPrefs.GetBool("mInspector-attributesEnabled", false); set => EditorPrefs.SetBool("mInspector-attributesEnabled", value); }
+        //public static bool resettableVariablesEnabled { get => EditorPrefs.GetBool("mInspector-resettableVariablesEnabled", false); set => EditorPrefs.SetBool("mInspector-resettableVariablesEnabled", value); }
         public static bool hideScriptFieldEnabled { get => EditorPrefs.GetBool("mInspector-hideScriptFieldEnabled", false); set => EditorPrefs.SetBool("mInspector-hideScriptFieldEnabled", value); }
         public static bool hideHelpButtonEnabled { get => !helpButtonEnabled; set => helpButtonEnabled = !value; }
         public static bool hidePresetsButtonEnabled { get => !presetsButtonEnabled; set => presetsButtonEnabled = !value; }
@@ -65,8 +65,8 @@ namespace MInspector
         const string componentWindows = dir + "Component windows";
         const string componentAnimations = dir + "Component animations";
         const string minimalMode = dir + "Minimal mode";
-        const string resettableVariables = dir + "Resettable variables";
-        const string hideScriptField = dir + "Hide script field";
+        // const string resettableVariables = dir + "Resettable variables";
+        // const string hideScriptField = dir + "Hide script field";
         const string hideHelpButton = dir + "Hide help button";
         const string hidePresetsButton = dir + "Hide presets button";
 
@@ -106,11 +106,11 @@ namespace MInspector
         [MenuItem(minimalMode, false, 7)] static void dadsadsadsadsadasdsadadsas() { minimalModeEnabled = !minimalModeEnabled; RepaintInspectors(); }
         [MenuItem(minimalMode, true, 7)] static bool dadsadasdasddsasadadsdasadsas() { Menu.SetChecked(minimalMode, minimalModeEnabled); return !pluginDisabled; }
 
-        [MenuItem(resettableVariables, false, 8)] static void dadsadsadsadasdsadadsas() { resettableVariablesEnabled = !resettableVariablesEnabled; RepaintInspectors(); }
-        [MenuItem(resettableVariables, true, 8)] static bool dadsadasddsasadadsdasadsas() { Menu.SetChecked(resettableVariables, resettableVariablesEnabled); return !pluginDisabled; }
+        //[MenuItem(resettableVariables, false, 8)] static void dadsadsadsadasdsadadsas() { resettableVariablesEnabled = !resettableVariablesEnabled; RepaintInspectors(); }
+        //[MenuItem(resettableVariables, true, 8)] static bool dadsadasddsasadadsdasadsas() { Menu.SetChecked(resettableVariables, resettableVariablesEnabled); return !pluginDisabled; }
 
-        [MenuItem(hideScriptField, false, 9)] static void dadsadsdsaadsadsadasdsadadsas() { hideScriptFieldEnabled = !hideScriptFieldEnabled; RepaintInspectors(); }
-        [MenuItem(hideScriptField, true, 9)] static bool dadsadasadsdasddsasadadsdasadsas() { Menu.SetChecked(hideScriptField, hideScriptFieldEnabled); return !pluginDisabled; }
+        //[MenuItem(hideScriptField, false, 9)] static void dadsadsdsaadsadsadasdsadadsas() { hideScriptFieldEnabled = !hideScriptFieldEnabled; RepaintInspectors(); }
+        //[MenuItem(hideScriptField, true, 9)] static bool dadsadasadsdasddsasadadsdasadsas() { Menu.SetChecked(hideScriptField, hideScriptFieldEnabled); return !pluginDisabled; }
 
         [MenuItem(hideHelpButton, false, 10)] static void dadsadsadsdsaadsadsadasdsadadsas() { hideHelpButtonEnabled = !hideHelpButtonEnabled; RepaintInspectors(); }
         [MenuItem(hideHelpButton, true, 10)] static bool dadsaadsdasadsdasddsasadadsdasadsas() { Menu.SetChecked(hideHelpButton, hideHelpButtonEnabled); return !pluginDisabled; }

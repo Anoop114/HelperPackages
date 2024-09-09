@@ -4,8 +4,8 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using static MInspector.VUtils;
-using static MInspector.VGUI;
+using static MInspector.MUtils;
+using static MInspector.MGUI;
 using static MInspector.MInspectorData;
 using static MInspector.MInspector;
 

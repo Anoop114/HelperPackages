@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
 
-
-namespace MInspector
+namespace MAttribute
 {
 
     public class FoldoutAttribute : Attribute
